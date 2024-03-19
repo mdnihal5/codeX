@@ -35,7 +35,7 @@ function ResourcesPage() {
           </Grid>
           <Grid marginX={"10%"} item>
             <Item>
-              <WMedium />
+              <Medium />
             </Item>
           </Grid>
         </Grid>
@@ -60,7 +60,7 @@ function ResourcesPage() {
           </Grid>
           <Grid marginX={"10%"} item>
             <Item>
-              <Medium />
+              <WMedium />
             </Item>
           </Grid>
         </Grid>
