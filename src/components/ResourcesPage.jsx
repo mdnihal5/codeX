@@ -6,6 +6,9 @@ import Medium from "./Resources_DSA/Medium";
 import Codevolution from "./Resources_WebDev/Codevolution";
 import GithubPage from "./Resources_WebDev/GithubPage";
 import WMedium from "./Resources_WebDev/WMedium";
+import Cpalgorithms from "./Resources_CP/Cpalgorithms";
+import Usacoguide from "./Resources_CP/Usacoguide";
+import CodeforcesCatolog from "./Resources_CP/CodeforcesCatolog";
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
   ...theme.typography.body2,
@@ -36,6 +39,31 @@ function ResourcesPage() {
           <Grid marginX={"10%"} item>
             <Item>
               <Medium />
+            </Item>
+          </Grid>
+        </Grid>
+      </Box>
+      {/* Competitive Programming */}
+      <Typography variant="h5" backgroundColor="dark" margin={5}>
+        <Button color="Heading" variant="contained">
+          Competitive Programming
+        </Button>
+      </Typography>
+      <Box margin={2} sx={{ width: "95s%", flexGrow: 1 }}>
+        <Grid overflow={"hidden"} container gap={5}>
+          <Grid marginX={"10%"} itemScope>
+            <Item>
+              <Cpalgorithms />
+            </Item>
+          </Grid>
+          <Grid marginX={"10%"} item>
+            <Item>
+              <Usacoguide />
+            </Item>
+          </Grid>
+          <Grid marginX={"10%"} item>
+            <Item>
+              <CodeforcesCatolog />
             </Item>
           </Grid>
         </Grid>
