@@ -97,6 +97,7 @@ function Navbar(Theme) {
                   <Button
                     className="hover:scale-110"
                     key={page}
+                    title={page}
                     onClick={handleCloseNavMenu}
                     sx={{
                       my: 2,
