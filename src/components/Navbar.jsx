@@ -16,7 +16,9 @@ const pages = ["Home", "Resources", "resume", "Help Desk"]; //, "Notifications"
 import AccountMenu from "../AccountMenu";
 import { Link } from "react-router-dom";
 import { Stack } from "@mui/material";
-function Navbar(Theme) {
+import UserContext from "../UserContext";
+function Navbar() {
+  const { Theme, SetTheme } = React.useContext(UserContext);
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
@@ -120,11 +122,11 @@ function Navbar(Theme) {
           >
             <IconButton
               onClick={() => {
-                Theme.child.setTheme((c) => c ^ 1);
+                SetTheme((c) => c ^ 1);
               }}
               color="inherit"
             >
-              {Theme.child.theme ? <Brightness7Icon /> : <Brightness4Icon />}
+              {Theme ? <Brightness7Icon /> : <Brightness4Icon />}
             </IconButton>
             <AccountMenu />
           </Stack>

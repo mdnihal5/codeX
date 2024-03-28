@@ -10,16 +10,16 @@ import Tooltip from "@mui/material/Tooltip";
 import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
 import { Login } from "@mui/icons-material";
+import UserContext from "./UserContext";
 
 export default function AccountMenu() {
-  const [LoggedIn, setLoggedIn] = React.useState(0);
+  const { LoggedIn, setLoggedIn } = React.useContext(UserContext);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
-    console.log("clicked");
     setAnchorEl(null);
   };
   return (

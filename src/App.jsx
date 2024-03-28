@@ -2,7 +2,7 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import "./App.css";
 
 import Navbar from "./components/Navbar";
-import { useState } from "react";
+import { useContext } from "react";
 import HomePage from "./components/HomePage";
 import Resume from "./components/Resume";
 import { Route, Routes } from "react-router-dom";
@@ -11,6 +11,7 @@ import NotificationsPage from "./components/NotificationsPage";
 import ResourcesPage from "./components/ResourcesPage";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
+import UserContext from "./UserContext";
 const darkTheme = (theme) =>
   createTheme({
     palette: {
@@ -30,17 +31,20 @@ const darkTheme = (theme) =>
     },
   });
 const App = () => {
-  const [theme, setTheme] = useState(1);
+  const { Theme, LoggedIn } = useContext(UserContext);
   return (
-    <ThemeProvider theme={darkTheme(theme)}>
-      <Navbar color="primary" child={{ theme, setTheme }} />
+    <ThemeProvider theme={darkTheme(Theme)}>
+      <Navbar color="primary" />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/Home" element={<HomePage />} />
-        <Route path="/Help Desk" element={<HelpDesk />} />
+        <Route
+          path="/Help Desk"
+          element={LoggedIn ? <HelpDesk /> : <SignIn />}
+        />
         <Route path="/Notifications" element={<NotificationsPage />} />
         <Route path="/Resources" element={<ResourcesPage />} />
-        <Route path="/Resume" element={<Resume />} />
+        <Route path="/Resume" element={LoggedIn ? <Resume /> : <SignIn />} />
         <Route path="/Login" element={<SignIn />} />
         <Route path="/SignUp" element={<SignUp />} />
       </Routes>
